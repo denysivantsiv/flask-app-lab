@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row g-4">
+  <aside class="col-lg-4 text-center">
+    <div class="card shadow-sm border-0 p-4 sticky-top" style="top: 90px;">
+      <img src="{{ url_for('static', filename='images/profile.jpg') }}" 
+           alt="Фото профілю" 
+           class="img-fluid rounded-circle mx-auto mb-3 border border-3 border-primary shadow profile-img">
+      <h3 class="fw-bold mb-1">Денис Іванців</h3>
+      <p class="text-muted">Junior Software & Web Developer</p>
+      <hr>
+      <div class="text-start small">
+        <p class="mb-2"><strong>Локація:</strong> Івано-Франківськ, Україна</p>
+        <p class="mb-2"><strong>Освіта:</strong> Програмна інженерія</p>
+        <p class="mb-0"><strong>Зайнятість:</strong> Студент</p>
+      </div>
+      <div class="mt-4">
+        <a href="{{ url_for('contacts') }}" class="btn btn-outline-primary w-100">Написати мені</a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="col-lg-8">
+    <section id="about" class="card shadow-sm border-0 p-4 mb-4">
+      <h4 class="text-primary border-bottom pb-2 mb-3">Про себе</h4>
+      <p class="text-secondary mb-0">
+        Студент, який розвивається у сфері програмної інженерії та веброзробки. Маю практичний досвід створення застосунків на Python, використання мікрофреймворку Flask, роботи з базами даних SQL і системою контролю версій Git.
+      </p>
+    </section>
+
+    <section id="education" class="card shadow-sm border-0 p-4 mb-4">
+      <h4 class="text-primary border-bottom pb-2 mb-3">Освіта</h4>
+      <div class="mb-2">
+        <h5 class="fw-bold mb-1">Інженерія програмного забезпечення</h5>
+        <span class="text-muted small">2023 — 2026</span>
+      </div>
+      <p class="text-secondary small mb-0">
+        Алгоритми, об'єктно-орієнтоване програмування, веброзробка, бази даних та комп'ютерні мережі.
+      </p>
+    </section>
+
+    <section id="skills" class="card shadow-sm border-0 p-4 mb-4">
+      <h4 class="text-primary border-bottom pb-2 mb-3">Навички та Технології</h4>
+      <div class="d-flex flex-wrap gap-2">
+        <span class="badge bg-primary px-3 py-2 fs-6">Python</span>
+        <span class="badge bg-dark px-3 py-2 fs-6">Flask</span>
+        <span class="badge bg-secondary px-3 py-2 fs-6">Jinja2</span>
+        <span class="badge bg-info text-dark px-3 py-2 fs-6">Bootstrap 5</span>
+        <span class="badge bg-success px-3 py-2 fs-6">Git / GitHub</span>
+        <span class="badge bg-warning text-dark px-3 py-2 fs-6">HTML5 / CSS3</span>
+        <span class="badge bg-danger px-3 py-2 fs-6">SQL</span>
+      </div>
+    </section>
+
+    <section id="projects" class="card shadow-sm border-0 p-4">
+      <h4 class="text-primary border-bottom pb-2 mb-3">Проекти</h4>
+      <div class="mb-3">
+        <h5 class="fw-bold mb-1">Flask Web-App — Лабораторна робота №1</h5>
+        <p class="text-secondary small mb-2">
+          Базовий додаток у віртуальному середовищі з налаштуванням змінних оточення та деплоєм на Render.
+        </p>
+      </div>
+      <hr>
+      <div>
+        <h5 class="fw-bold mb-1">Сайт-резюме — Лабораторна робота №2</h5>
+        <p class="text-secondary small mb-0">
+          Багатосторінковий ресурс із динамічними шаблонами Jinja2, компонентами через include та Bootstrap-стилізацією.
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
