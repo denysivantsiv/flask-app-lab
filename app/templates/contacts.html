@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-sm border-0 p-4">
+      <h3 class="text-center text-primary fw-bold mb-2">Зв'яжіться зі мною</h3>
+      <p class="text-center text-muted small mb-4">Надішліть повідомлення через форму нижче:</p>
+
+      <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Дякуємо! Повідомлення надіслано (тестова заглушка).');">
+        <div class="mb-3">
+          <label for="name" class="form-label fw-semibold">Ваше ім'я</label>
+          <input type="text" class="form-control" id="name" placeholder="Введіть ім'я" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label fw-semibold">Email адреса</label>
+          <input type="email" class="form-control" id="email" placeholder="example@mail.com" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="subject" class="form-label fw-semibold">Тема</label>
+          <input type="text" class="form-control" id="subject" placeholder="Тема повідомлення" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label fw-semibold">Повідомлення</label>
+          <textarea class="form-control" id="message" rows="4" placeholder="Ваш текст..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm">
+          Надіслати повідомлення
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
