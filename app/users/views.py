@@ -1,10 +1,22 @@
 from flask import render_template, request, redirect, url_for, session, flash, make_response
 from app.users import user_bp
 
-# Заглушка логіна/пароля
 VALID_USER = "user1"
 VALID_PASS = "12345"
 
+# --- Маршрути з Лабораторної 3 (потрібні для test_user_bp) ---
+@user_bp.route("/hi/<string:name>")
+def greetings(name):
+    name = name.upper()
+    age = request.args.get("age", None, type=int)
+    return render_template("users/hi.html", name=name, age=age)
+
+@user_bp.route("/admin")
+def admin():
+    to_url = url_for("users.greetings", name="administrator", age=45)
+    return redirect(to_url)
+
+# --- Маршрути з Лабораторної 4 ---
 @user_bp.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
