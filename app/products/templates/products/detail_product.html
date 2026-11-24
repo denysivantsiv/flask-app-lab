@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="card p-4 shadow-sm border-0">
+  <div class="row g-4">
+    <div class="col-md-5">
+      {% if product.image %}
+        <img src="{{ url_for('static', filename=product.image) }}" class="img-fluid rounded border" alt="{{ product.name }}">
+      {% else %}
+        <div class="bg-secondary text-white text-center py-5 rounded">Немає фото</div>
+      {% endif %}
+    </div>
+    <div class="col-md-7 d-flex flex-column">
+      <span class="badge bg-secondary mb-2 w-auto align-self-start">{{ product.category }}</span>
+      <h2 class="fw-bold">{{ product.name }}</h2>
+      <h3 class="text-success mb-3">${{ "%.2f"|format(product.price) }}</h3>
+      <p class="lead text-secondary">{{ product.content }}</p>
+      <p class="small text-muted mb-1"><strong>Кількість:</strong> {{ product.quantity }} шт.</p>
+      <p class="small text-muted"><strong>Додано:</strong> {{ product.created_at }}</p>
+
+      <div class="d-flex gap-2 mt-auto pt-3">
+        <a href="{{ url_for('products.all_products') }}" class="btn btn-secondary">До каталогу</a>
+        <a href="{{ url_for('products.edit_product', product_id=product.id) }}" class="btn btn-warning">Редагувати</a>
+        
+        <form method="POST" action="{{ url_for('products.delete_product', product_id=product.id) }}" onsubmit="return confirm('Ви впевнені, що хочете видалити цей товар?');">
+          <button type="submit" class="btn btn-danger">Видалити</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
